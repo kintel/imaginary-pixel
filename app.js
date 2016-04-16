@@ -4,16 +4,18 @@ var ctx = canvas.getContext('2d');
 
 var x = 50;
 var y = 50;
+var blobsize = 200;
 
 function canvasDraw() {
   ctx.fillStyle = "black";
   ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);
   ctx.fillStyle = "#777777";
   
+  var n = new Date().getTime();
+  y = (Math.sin((n/10%360)*Math.PI/180) + 1)/2*(canvas.clientHeight-blobsize);
   ctx.fillRect(x,y,200,200);
 }
 
-var blobsize = 200;
 function canvasLoop(e) {
   var movementX = e.movementX || 0;
 
