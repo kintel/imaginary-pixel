@@ -29,6 +29,7 @@ function canvasLoop(e) {
   var animation = requestAnimationFrame(canvasLoop);
 }
 document.addEventListener("mousemove", canvasLoop, false);
+canvas.ondblclick = enterFullscreen;
 
 var screen = document.querySelector("#screen");
 
@@ -37,13 +38,13 @@ function enterFullscreen() {
   canvas.requestPointerLock();
   console.log("enterFullscreen()");
   screen.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-  document.getElementById('enter-exit-fs').onclick = exitFullscreen;
+  canvas.ondblclick = exitFullscreen;
 }
 
 function exitFullscreen() {
   console.log("exitFullscreen()");
-  document.cancelFullScreen();
-  document.getElementById('enter-exit-fs').onclick = enterFullscreen;
+  document.webkitCancelFullScreen();
+  canvas.ondblclick = enterFullscreen;
 }
 
 function resize() {
