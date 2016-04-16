@@ -16,9 +16,9 @@ function canvasLoop(e) {
   var movementY = e.movementY || 0;
   x += movementX;
   y += movementY; 
-  x = Math.min(x, screen.clientWidth - blobsize);
+  x = Math.min(x, screen.width - blobsize);
   x = Math.max(x, 0);
-//  y = Math.min(y, screen.clientHeight - blobsize);
+  y = Math.min(y, screen.height - blobsize);
   y = Math.max(y, 0);
 
 //  var n = new Date().getTime();
