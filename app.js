@@ -7,12 +7,12 @@ var y = 50;
 var blobsize = 200;
 
 function canvasDraw() {
-  ctx.fillStyle = "black";
-  ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);
-  ctx.fillStyle = "#777777";
+  ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
+
   
   var n = new Date().getTime();
   y = (Math.sin((n/10%360)*Math.PI/180) + 1)/2*(canvas.clientHeight-blobsize);
+  ctx.fillStyle = "#777777";
   ctx.fillRect(x,y,200,200);
 }
 
