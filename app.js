@@ -21,8 +21,8 @@ function canvasLoop(e) {
   y = Math.min(y, screen.clientHeight - blobsize);
   y = Math.max(y, 0);
 
-  var n = new Date().getTime();
-  y = (Math.sin((n/10%360)*Math.PI/180) + 1)/2*(canvas.clientHeight-blobsize);
+//  var n = new Date().getTime();
+//  y = (Math.sin((n/10%360)*Math.PI/180) + 1)/2*(canvas.clientHeight-blobsize);
   ctx.fillStyle = "#777777";
   ctx.fillRect(x,y,200,200);
 
