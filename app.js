@@ -6,30 +6,25 @@ var x = 50;
 var y = 50;
 var blobsize = 200;
 
-function canvasDraw() {
-  ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
-
-  
-  var n = new Date().getTime();
-  y = (Math.sin((n/10%360)*Math.PI/180) + 1)/2*(canvas.clientHeight-blobsize);
-  ctx.fillStyle = "#777777";
-  ctx.fillRect(x,y,200,200);
-}
-
 function canvasLoop(e) {
+//  ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
+
+  ctx.fillStyle = "#000";
+  ctx.fillRect(x-10,y-10,220,220);
+  
   var movementX = e.movementX || 0;
-
   var movementY = e.movementY || 0;
-
   x += movementX;
   y += movementY; 
-
   x = Math.min(x, screen.clientWidth - blobsize);
   x = Math.max(x, 0);
   y = Math.min(y, screen.clientHeight - blobsize);
   y = Math.max(y, 0);
 
-  canvasDraw();
+  var n = new Date().getTime();
+  y = (Math.sin((n/10%360)*Math.PI/180) + 1)/2*(canvas.clientHeight-blobsize);
+  ctx.fillStyle = "#777777";
+  ctx.fillRect(x,y,200,200);
 
   var animation = requestAnimationFrame(canvasLoop);
 }
